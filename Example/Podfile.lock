@@ -1,0 +1,16 @@
+PODS:
+  - NJSisPlayPage (0.1.0)
+
+DEPENDENCIES:
+  - NJSisPlayPage (from `../`)
+
+EXTERNAL SOURCES:
+  NJSisPlayPage:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  NJSisPlayPage: 0adce85ac9ac4d29ef6caf1dfc0f6bd98991b4df
+
+PODFILE CHECKSUM: 998b81850ce6ddc73149c3b3d848dadce30f4f3e
+
+COCOAPODS: 1.5.3
