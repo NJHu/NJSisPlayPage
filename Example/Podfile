@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'NJSisPlayPage_Example' do
+  pod 'NJSisPlayPage', :path => '../'
+
+  target 'NJSisPlayPage_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
