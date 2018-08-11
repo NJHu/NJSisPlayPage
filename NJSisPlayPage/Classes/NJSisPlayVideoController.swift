@@ -6,7 +6,14 @@
 //
 
 import UIKit
+import NJKit
 
-class NJSisPlayVideoController: NSObject {
-
+class NJSisPlayVideoController: NJViewController {
+    var videoUrl: String?
+    var topicId: String?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "播放视频"
+    }
 }
