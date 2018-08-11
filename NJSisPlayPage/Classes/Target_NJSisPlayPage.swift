@@ -15,7 +15,7 @@ import NJKit
         let videoUrl = params["video"] as? String
         let topicId = params["topicId"] as? String
         let size = params["videoSize"] ?? CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width * 0.65)
-        let videoInfo: (videoUrl: String?, topicId: String?, videoSize: CGSize?) = (videoUrl, topicId, size as? CGSize)
+        let videoInfo: (videoUrl: String?, topicId: String?, videoSize: CGSize) = (videoUrl, topicId, size as! CGSize)
         playVc.videoInfo = videoInfo
         return playVc
     }
