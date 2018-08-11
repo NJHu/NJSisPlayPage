@@ -12,8 +12,11 @@ import NJKit
     
     @objc func Action_SisPlayController(params: [String: Any]) -> UIViewController? {
         let playVc = NJSisPlayVideoController()
-           playVc.videoUrl = params["video"] as? String
-           playVc.topicId = params["topicId"] as? String
+        let videoUrl = params["video"] as? String
+        let topicId = params["topicId"] as? String
+        let size = params["videoSize"] ?? CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width * 0.65)
+        let videoInfo: (videoUrl: String?, topicId: String?, videoSize: CGSize?) = (videoUrl, topicId, size as? CGSize)
+        playVc.videoInfo = videoInfo
         return playVc
     }
 }
