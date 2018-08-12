@@ -17,8 +17,7 @@ class NJSisPlayVideoController: NJViewController {
         title = "播放视频"
         containerView.backgroundColor = UIColor.black
         self.view.addSubview(containerView)
-        
-        NJVideoPlayerManager.sharedManager.prepareToPlay(contentURLString: videoInfo!.videoUrl!, in: containerView, shouldAutorotate: containerView.frame.width > containerView.frame.height, delegate: self)
+        NJVideoPlayerManager.sharedManager.prepareToPlay(contentURLString: videoInfo!.videoUrl!, in: containerView, shouldAutorotate: videoInfo!.videoSize.width > videoInfo!.videoSize.height, delegate: self)
     }
     
     override func viewDidLayoutSubviews() {
