@@ -18,11 +18,15 @@ class NJSisPlayVideoController: NJViewController {
         containerView.backgroundColor = UIColor.black
         self.view.addSubview(containerView)
         NJVideoPlayerManager.sharedManager.prepareToPlay(contentURLString: videoInfo!.videoUrl!, in: containerView, shouldAutorotate: videoInfo!.videoSize.width > videoInfo!.videoSize.height, delegate: self)
+        nj_navigationBar.bottomSepLineView.isHidden = true
+        nj_navigationBar.titleLabel.isHidden = true
+        nj_navigationBar.backgroundColor = UIColor.clear
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        containerView.frame = CGRect(x: 0, y: self.nj_navigationBar.frame.maxY, width: self.view.frame.width, height: self.view.frame.width * videoInfo!.videoSize.height / videoInfo!.videoSize.width)
+        containerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: min(self.view.frame.width * videoInfo!.videoSize.height / videoInfo!.videoSize.width, self.view.frame.height))
+//        containerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
     }
     
     override func viewWillAppear(_ animated: Bool) {
