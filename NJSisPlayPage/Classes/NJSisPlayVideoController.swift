@@ -72,7 +72,7 @@ extension NJSisPlayVideoController: NJVideoPlayerManagerDelegate {
 
 // MARK:- StatusBar
 //        setNeedsStatusBarAppearanceUpdate()
-extension NJNavBarViewController {
+extension NJSisPlayVideoController {
     open  override var preferredStatusBarStyle: UIStatusBarStyle {
         return UIStatusBarStyle.lightContent
     }
