@@ -48,7 +48,7 @@ class NJSisPlayVideoController: NJViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        containerView.frame = CGRect(x: 0, y: UIApplication.shared.statusBarFrame.maxY, width: self.view.frame.width, height: min(self.view.frame.width * videoHeight / videoWidth, self.view.frame.height))
+        containerView.frame = CGRect(x: 0, y: UIApplication.shared.statusBarFrame.maxY, width: self.view.frame.width, height: min(self.view.frame.width * videoHeight / videoWidth, self.view.frame.height - UIApplication.shared.statusBarFrame.maxY))
     }
     
     override func viewWillAppear(_ animated: Bool) {
