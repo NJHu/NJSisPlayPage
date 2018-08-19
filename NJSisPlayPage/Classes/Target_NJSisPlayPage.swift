@@ -7,16 +7,18 @@
 
 import UIKit
 import NJKit
+import SwiftyJSON
 
 @objc class Target_NJSisPlayPage: NSObject {
     
     @objc func Action_SisPlayController(params: [String: Any]) -> UIViewController? {
+        let jsonData = params["jsonData"] as? JSON
+        if jsonData == nil {
+            return nil
+        }
+        
         let playVc = NJSisPlayVideoController()
-        let videoUrl = params["video"] as? String
-        let topicId = params["topicId"] as? String
-        let size = params["videoSize"] ?? CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width * 0.65)
-        let videoInfo: (videoUrl: String?, topicId: String?, videoSize: CGSize) = (videoUrl, topicId, size as! CGSize)
-        playVc.videoInfo = videoInfo
+        playVc.jsonDataInfo = jsonData
         return playVc
     }
 }
