@@ -18,6 +18,14 @@ class NJSisPlayVideoController: NJViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "播放视频"
+        let statusBarBg = UIView()
+        statusBarBg.backgroundColor = UIColor.black
+        view.addSubview(statusBarBg)
+        statusBarBg.snp.makeConstraints { (make) in
+            make.left.right.top.equalToSuperview()
+            make.height.equalTo(50)
+        }
+        
         containerView.backgroundColor = UIColor.black
         self.view.addSubview(containerView)
         
@@ -36,14 +44,6 @@ class NJSisPlayVideoController: NJViewController {
         nj_navigationBar.bottomSepLineView.isHidden = true
         nj_navigationBar.titleLabel.isHidden = true
         nj_navigationBar.backgroundColor = UIColor.clear
-        
-        let statusBarBg = UIView()
-        statusBarBg.backgroundColor = UIColor.black
-        view.addSubview(statusBarBg)
-        statusBarBg.snp.makeConstraints { (make) in
-            make.left.right.top.equalToSuperview()
-            make.height.equalTo(50)
-        }
     }
     
     override func viewDidLayoutSubviews() {
