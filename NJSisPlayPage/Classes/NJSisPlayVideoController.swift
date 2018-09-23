@@ -18,13 +18,6 @@ class NJSisPlayVideoController: NJViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "播放视频"
-        let statusBarBg = UIView()
-        statusBarBg.backgroundColor = UIColor.black
-        view.addSubview(statusBarBg)
-        statusBarBg.snp.makeConstraints { (make) in
-            make.left.right.top.equalToSuperview()
-            make.height.equalTo(50)
-        }
         
         containerView.backgroundColor = UIColor.black
         self.view.addSubview(containerView)
@@ -40,15 +33,11 @@ class NJSisPlayVideoController: NJViewController {
         if videoUrl.lengthOfBytes(using: String.Encoding.utf8) > 0 {
             NJVideoPlayerManager.sharedManager.prepareToPlay(contentURLString: videoUrl, in: containerView, shouldAutorotate: videoWidth > videoHeight, delegate: self)
         }
-
-        nj_navigationBar.bottomSepLineView.isHidden = true
-        nj_navigationBar.titleLabel.isHidden = true
-        nj_navigationBar.backgroundColor = UIColor.clear
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        containerView.frame = CGRect(x: 0, y: UIApplication.shared.statusBarFrame.maxY, width: self.view.frame.width, height: min(self.view.frame.width * videoHeight / videoWidth, self.view.frame.height - UIApplication.shared.statusBarFrame.maxY))
+        containerView.frame = CGRect(x: 0, y: nj_navigationBar.frame.maxY, width: self.view.frame.width, height: min(self.view.frame.width * videoHeight / videoWidth, self.view.frame.height - nj_navigationBar.frame.maxY))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,7 +62,7 @@ extension NJSisPlayVideoController: NJVideoPlayerManagerDelegate {
 // MARK:- StatusBar
 //        setNeedsStatusBarAppearanceUpdate()
 extension NJSisPlayVideoController {
-    open  override var preferredStatusBarStyle: UIStatusBarStyle {
-        return UIStatusBarStyle.lightContent
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        return UIStatusBarStyle.default
     }
 }
